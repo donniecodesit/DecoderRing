@@ -27,6 +27,12 @@ describe("substitution() tests written manually", () => {
             const actual = substitution("hello", alphabetKey);
             expect(actual).to.equal(expected);
         });
+        it("should handle converting a capital to lowercase", () => {
+            const alphabetKey = "zyxwvutsrqponmlkjihgfedcba";
+            const expected = "svool";
+            const actual = substitution("Hello", alphabetKey);
+            expect(actual).to.equal(expected);
+        });
         it("should work with special characters", () => {
             const alphabetKey = "*yxwvutsrqponmlkjihgfedcb.";
             const actual = substitution("aztec", alphabetKey);
@@ -45,6 +51,12 @@ describe("substitution() tests written manually", () => {
             const alphabetKey = "zyxwvutsrqponmlkjihgfedcba";
             const expected = "hello";
             const actual = substitution("svool", alphabetKey, false);
+            expect(actual).to.equal(expected);
+        });
+        it("should handle converting a capital to lowercase", () => {
+            const alphabetKey = "zyxwvutsrqponmlkjihgfedcba";
+            const expected = "hello";
+            const actual = substitution("Svool", alphabetKey, false);
             expect(actual).to.equal(expected);
         });
         it("should work with special characters", () => {

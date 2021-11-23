@@ -16,7 +16,7 @@ const substitutionModule = (function () {
     if (encode){
       //Check each letter of our input, if there is a space, include it, otherwise convert each letter using alphabetKey ==> alphabet
       for (let index of input) {
-        index === " " ? result += " " : result += alphabet[normalAlphabet.indexOf(index)].toLowerCase();
+        index === " " ? result += " " : result += alphabet[normalAlphabet.indexOf(index.toLowerCase())];
       }
     } 
 
@@ -24,7 +24,7 @@ const substitutionModule = (function () {
     else {
       //Check each letter of our input, if there is a space, include it, otherwise convert each letter using alphabet ==> alphabetKey
       for (let index of input) {
-        index === " " ? result += " " : result += normalAlphabet[alphabet.indexOf(index)].toLowerCase();
+        index === " " ? result += " " : result += normalAlphabet[alphabet.indexOf(index.toLowerCase())];
       }
     }
     return result;
