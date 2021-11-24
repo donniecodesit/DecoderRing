@@ -3,6 +3,10 @@ const polybius = require('../src/polybius').polybius;
 
 describe("polybius() tests written manually", () => {
     describe("Encoding", () => {
+        it ("should return false if the any input type is wrong.", () => {
+            const test = polybius(false, 'string');
+            expect(test).to.be.false;
+        });
         it("should successfully encode a message.", () => {
             const expected = "3251131343";
             const actual = polybius("hello");

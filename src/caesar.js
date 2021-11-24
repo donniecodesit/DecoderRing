@@ -5,17 +5,16 @@ const caesarModule = (function () {
     if(shift === 0 || shift > 25 || shift < -25) return false;
 
     //Initialize result, predict shift direction off of encode/decode.
+    const shiftModifier = (encode ? shift : -shift);
     let result = "";
-    let shiftModifier = shift;
-    let text = input.toLowerCase();
-    encode ? shiftModifier = shift : shiftModifier = 0 - shift;
+    const text = input.toLowerCase();
 
     //Iterate through each letter to compare it's ASCII value, if <97 or >122, it's not a lowercase letter.
     for (let s in text) {
       if (text.charCodeAt(s) < 97 || text.charCodeAt(s) > 122) result += input[s]
       else {
         //If the shift has us printing something outside of the ASCII lowercase, shift by an entire alphabet (26 letters)
-        let newChar = text.charCodeAt(s) + shiftModifier;
+        const newChar = text.charCodeAt(s) + shiftModifier;
         if (newChar > 122) result += String.fromCharCode(newChar - 26);
         else if (newChar < 97) result += String.fromCharCode(newChar + 26);
         else result += String.fromCharCode(newChar);

@@ -3,6 +3,12 @@ const substitution = require('../src/substitution').substitution;
 
 describe("substitution() tests written manually", () => {
     describe("Error Testing", () => {
+        it ("should return false if any input type is wrong.", () => {
+            const test1 = substitution(false, false);
+            const test2 = substitution(false, false, 100);
+            expect(test1).to.be.false;
+            expect(test2).to.be.false;
+        });
         it("should return false if the alphabet key is missing", () => {
             const actual = substitution("hello");
             expect(actual).to.be.false;

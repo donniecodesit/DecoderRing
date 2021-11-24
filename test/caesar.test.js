@@ -3,7 +3,7 @@ const caesar = require('../src/caesar').caesar;
 
 describe("ceasar() tests written manually", () => {
     describe("Error Testing", () => {
-        it ("should return false if the any input type is wrong.", () => {
+        it ("should return false if any input type is wrong.", () => {
             const test1 = caesar(false, 10);
             const test2 = caesar(false, false);
             const test3 = caesar(false, false, 100);

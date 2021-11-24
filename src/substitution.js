@@ -3,12 +3,13 @@ const substitutionModule = (function () {
   
   function substitution(input, alphabet, encode = true) {
     result = "";
-    //Check out susbtituted alphabet, if it is too short (not 26) or missing, return false.
+    //Check out susbtituted alphabet, if it is too short (not 26) or missing, return false. Also check types!
     if (!alphabet || alphabet.length !== 26) return false;
+    if(typeof input !== 'string' || typeof alphabet !== 'string' || typeof encode !== 'boolean') return false;
 
     //Check if the alphabet contains special characters (no duplicates!)
-    let duplicateChecks = alphabet.toLowerCase().split("").sort().join("").match(/(.)\1+/g);
-    // ^ This will split the string into an array, sort them by order, join them, and check if any index matches it's +1 index
+    // v This will split the string into an array, sort them by order, join them, and check if any index matches it's +1 index
+    const duplicateChecks = alphabet.toLowerCase().split("").sort().join("").match(/(.)\1+/g);
     if (duplicateChecks !== null) return false;
 
 
