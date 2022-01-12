@@ -11,4 +11,5 @@ This was built using JavaScript programming, and Test Driven Development was don
 The "shift" number for Caesar refers to how many letters forwards or backwards you want to shift in the alphabet.
 
 The "alphabet key" for Substitution refers to a new 26 character alphabet you input, which must have no duplicates.
+
 Example: `zyxwvutrsqponmlkjihgfedcba`
